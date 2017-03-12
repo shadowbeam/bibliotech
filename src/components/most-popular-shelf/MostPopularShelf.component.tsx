@@ -10,6 +10,21 @@ export default class MostPopularShelfComponent extends Component {
         super(props);
         this.books = [
             new Book('50 Shades of grey', 'Mr Grey', '0123456789', 'Kinky Publishers', ['filth', 'kinky'], 'o610281'),
+            new Book('50 Shades of grey', 'Mr Grey', '0123456789', 'Kinky Publishers', ['filth', 'kinky'], 'o610281'),
+            new Book('50 Shades of grey', 'Mr Grey', '0123456789', 'Kinky Publishers', ['filth', 'kinky'], 'o610281'),
+            new Book('50 Shades of grey', 'Mr Grey', '0123456789', 'Kinky Publishers', ['filth', 'kinky'], 'o610281'),
+            new Book('50 Shades of grey', 'Mr Grey', '0123456789', 'Kinky Publishers', ['filth', 'kinky'], 'o610281'),
+            new Book('50 Shades of grey', 'Mr Grey', '0123456789', 'Kinky Publishers', ['filth', 'kinky'], 'o610281'),
+            new Book('50 Shades of grey', 'Mr Grey', '0123456789', 'Kinky Publishers', ['filth', 'kinky'], 'o610281'),
+            new Book('50 Shades of grey', 'Mr Grey', '0123456789', 'Kinky Publishers', ['filth', 'kinky'], 'o610281'),
+            new Book('50 Shades of grey', 'Mr Grey', '0123456789', 'Kinky Publishers', ['filth', 'kinky'], 'o610281'),
+            new Book('50 Shades of grey', 'Mr Grey', '0123456789', 'Kinky Publishers', ['filth', 'kinky'], 'o610281'),
+            new Book('50 Shades of grey', 'Mr Grey', '0123456789', 'Kinky Publishers', ['filth', 'kinky'], 'o610281'),
+            new Book('50 Shades of grey', 'Mr Grey', '0123456789', 'Kinky Publishers', ['filth', 'kinky'], 'o610281'),
+            new Book('50 Shades of grey', 'Mr Grey', '0123456789', 'Kinky Publishers', ['filth', 'kinky'], 'o610281'),
+            new Book('50 Shades of grey', 'Mr Grey', '0123456789', 'Kinky Publishers', ['filth', 'kinky'], 'o610281'),
+            new Book('50 Shades of grey', 'Mr Grey', '0123456789', 'Kinky Publishers', ['filth', 'kinky'], 'o610281'),
+            new Book('50 Shades of grey', 'Mr Grey', '0123456789', 'Kinky Publishers', ['filth', 'kinky'], 'o610281'),
             new Book('React For Dummies', 'Ms JS', '0123456788', 'JS Publishers', ['js', 'web'], 'o610281')
         ];
     }
@@ -19,13 +34,13 @@ export default class MostPopularShelfComponent extends Component {
         return (
             <div className='most-popular-shelf' >
             <h2>Most Popular Books< /h2>
+
         {
             this.books.map((book, index) =>
                 <BookComponent key={ index } book= { book } />
             )
 
         }
-
         < /div>
           )
     }

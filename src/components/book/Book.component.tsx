@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Book from '../model/Book.model';
+import './book.component.less';
 
 export default class BookComponent extends Component {
 
@@ -13,9 +14,12 @@ export default class BookComponent extends Component {
 
     render() {
         return (
-            <div className='book' >
-            {this.book.toString()}
-        < /div>
+            <div className='col-xs-6 col-sm-3 col-md-3 col-lg-2' >
+            <div  className='book' >
+                <div className='spine' />
+                    <div className='cover' > { this.book.title } < /div>
+                        < /div>
+                        < /div>
           )
     }
 }

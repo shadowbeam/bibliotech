@@ -1,0 +1,28 @@
+@book-height: 250px;
+@book-corner: 3px;
+@import '../../variables.less';
+
+.book {
+    width: 100%;
+    height: @book-height;
+    background-color: brown;
+    box-shadow: 5px 5px 20px #333;
+    border-top-right-radius: @book-corner;
+    border-bottom-right-radius: @book-corner;
+    margin-bottom: 25px;
+    max-width: 225px;
+    margin-left: auto;
+    margin-right: auto;
+
+    .spine {
+        width: 10px;
+        height: 250px;
+        position: absolute;
+        background-color: rgba(51, 51, 51, 0.5);
+        margin-left: 5px;
+    }
+
+    .cover {
+        padding: 10px 10px 10px 15px;
+    }
+}
