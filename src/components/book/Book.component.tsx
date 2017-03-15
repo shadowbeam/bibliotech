@@ -16,10 +16,13 @@ export default class BookComponent extends Component {
         return (
             <div className='col-xs-6 col-sm-3 col-md-3 col-lg-2' >
             <div  className='book' >
-                <div className='spine' />
-                    <div className='cover' > { this.book.title } < /div>
-                        < /div>
-                        < /div>
+                <div className='spine' > </div>
+                    < div className= 'cover' >
+                        <span className='title' > { this.book.title } < /span>
+                            < span className= 'votes' > { this.book.votes } < /span>
+                                < /div>
+                                < /div>
+                                < /div>
           )
     }
 }
