@@ -18,4 +18,9 @@ export default class Book {
         this.votes = votes;
     }
 
+    upVote(): void {
+        console.log("upvote");
+        this.votes = this.votes + 1;
+    }
+
 }

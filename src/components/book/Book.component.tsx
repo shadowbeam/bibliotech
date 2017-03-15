@@ -11,11 +11,16 @@ export default class BookComponent extends Component {
         this.book = props.book;
     }
 
+    upVoteBook = ev => {
+        this.book.upVote()
+        this.forceUpdate();
+    };
+
 
     render() {
         return (
             <div className='col-xs-6 col-sm-3 col-md-3 col-lg-2' >
-            <div  className='book' >
+            <div  className='book' onClick= { this.upVoteBook } >
                 <div className='spine' > </div>
                     < div className= 'cover' >
                         <span className='title' > { this.book.title } < /span>
