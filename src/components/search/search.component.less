@@ -29,4 +29,34 @@
     input:focus {
         outline: none;
     }
+
+    .results {
+        position: absolute;
+        top: @nav-height;
+        width: 100%;
+        background-color: @dark-grey;
+        z-index: 5;
+        left: 0;
+
+        .result {
+            display: block;
+            font-size: 25px;
+            color: #fff;
+            border-bottom: solid 1px @light-grey;
+
+            span {
+                display: block;
+            }
+
+            .author {
+                font-size: 20px;
+            }
+
+            img {
+                width: 50px;
+                float: left;
+                padding: 5px;
+            }
+        }
+    }
 }

@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import * as React from 'react';
+import { Component } from 'react';
 import Book from '../model/Book.model';
 import BookComponent from '../book/Book.component';
 
@@ -27,15 +28,15 @@ export default class MostPopularShelfComponent extends Component {
     render() {
         return (
             <div className='most-popular-shelf' >
-            <h2>Most Popular Books< /h2>
+            <h2>Most Popular Books</h2>
 
         {
             this.books.map((book, index) =>
-                <BookComponent key={ index } book= { book } />
+                <BookComponent key={ index } book= { book }/>
             )
 
         }
-        < /div>
+        </div>
           )
     }
 }

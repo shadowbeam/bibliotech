@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import * as React from 'react';
+import { Component } from 'react';
 import Book from '../../model/Book.model';
 import './up-vote.component.less';
 
@@ -37,14 +38,14 @@ export default class UpVoteComponent extends Component {
             <div className= 'up-vote' >
             <div className='button' onMouseEnter= { this.mouseOver.bind(this) } onMouseLeave= { this.mouseOut.bind(this) }  onClick= { this.upVoteBook } >
 
-                <div className='votes' > { this.book.votes } < /div>
+                <div className='votes' > { this.book.votes } </div>
 
         {
             this.state.hover || this.state.liked ? (<i className='fa fa-heart' />) :<span/>
         }
 
-        < /div>
-            < /div>
+        </div>
+            </div>
           )
     }
 }

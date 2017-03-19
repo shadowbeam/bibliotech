@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import * as React from 'react';
+import { Component } from 'react';
 import Book from '../model/Book.model';
 import './book.component.less';
 import UpVoteComponent from './up-vote/up-vote.component';
@@ -28,7 +29,7 @@ export default class BookComponent extends Component {
     }
 
     success = response => {
-        console.log(response);
+        // console.log(response);
         let id = response.data.items[0].id;
 
         this.image = `http://books.google.com/books/content?id=${id}&printsec=frontcover&img=1&source=gbs_api`;
@@ -41,7 +42,7 @@ export default class BookComponent extends Component {
         if (this.image) {
             cover = <img src={ this.image } />;
         } else {
-            cover = <h2 className='title' > { this.book.title } < /h2>;
+            cover = <h2 className='title' > { this.book.title } </h2>;
             spine = <div className='spine' > </div>;
 
         }
@@ -50,11 +51,11 @@ export default class BookComponent extends Component {
             <div className='book-wrapper col-xs-6 col-sm-3 col-md-3 col-lg-3' >
             <div  className='book' >
                 { spine }
-                < div className= 'cover' > { cover } < /div>
-                <UpVoteComponent book= { this.book } />
+                < div className= 'cover' > { cover } </div>
+                <UpVoteComponent book= { this.book }/>
 
-                            < /div>
-                            < /div>
+                            </div>
+                            </div>
           )
     }
 }
