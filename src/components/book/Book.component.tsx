@@ -40,16 +40,24 @@ export default class BookComponent extends Component {
 
 
     render() {
-        return (
-            <div className='book-wrapper col-xs-6 col-sm-3 col-md-3 col-lg-2' >
-            <div  className='book' onClick= { this.upVoteBook } >
-                <div className='spine' > </div>
-                    < div className= 'cover' >
-                        <img src={ this.image } />
+        let cover, spine;
+        if (this.image) {
+            cover = <img src={ this.image } />;
+        } else {
+            cover = <h2 className='title' > { this.book.title } < /h2>;
+            spine = <div className='spine' > </div>;
 
-                            < /div>
-                            < /div>
-                            < /div>
+        }
+
+        return (
+            <div className='book-wrapper col-xs-6 col-sm-3 col-md-3 col-lg-3' >
+            <div  className='book' onClick= { this.upVoteBook } >
+                { spine }
+                < div className= 'cover' >
+                    { cover }
+                    < /div>
+                    < /div>
+                    < /div>
           )
     }
 }
