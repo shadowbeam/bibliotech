@@ -8,6 +8,8 @@ export default class BookComponent extends Component {
 
     book: Book;
     image: string;
+    // amazon http://images.amazon.com/images/P/1491956259.01._PE99_SCLZZZZZZZ_.jpg
+    //openLib http://covers.openlibrary.org/b/isbn/9780385533225-S.jpg
 
     constructor(props) {
         super(props);
@@ -16,7 +18,6 @@ export default class BookComponent extends Component {
     }
 
     fetchBook() {
-
         axios.get(`https://www.googleapis.com/books/v1/volumes?q=isbn:${this.book.isbn}`)
             .then(this.success)
             .catch(function(error) {
@@ -28,6 +29,7 @@ export default class BookComponent extends Component {
     success = response => {
         console.log(response);
         let id = response.data.items[0].id;
+
         this.image = `http://books.google.com/books/content?id=${id}&printsec=frontcover&img=1&source=gbs_api`;
         this.forceUpdate();
 
