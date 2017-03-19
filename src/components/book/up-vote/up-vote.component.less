@@ -1,0 +1,43 @@
+@vote-button-height: 85px;
+
+.up-vote {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: @vote-button-height;
+    width: @vote-button-height;
+    padding: 10px;
+    color: #fff;
+
+    .button {
+        background-color: #f80046;
+        width: 100%;
+        height: 100%;
+        border-radius: 100%;
+        padding: 15px 0;
+        font-size: 20px;
+        border: none;
+    }
+
+    .centered-vertical{
+      position: absolute;
+      margin: auto;
+      left: 0;
+      right: 0;
+    }
+
+    .votes{
+      z-index:2;
+      .centered-vertical
+    }
+
+    i{
+      font-size: 45px;
+      color:#fff;
+      z-index:1;
+      top: 25%;
+      .centered-vertical
+    }
+
+
+}

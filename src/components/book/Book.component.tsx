@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Book from '../model/Book.model';
 import './book.component.less';
+import UpVoteComponent from './up-vote/up-vote.component';
 import axios  from 'axios';
 
 
@@ -35,12 +36,6 @@ export default class BookComponent extends Component {
 
     };
 
-    upVoteBook = ev => {
-        this.book.upVote()
-        this.forceUpdate();
-    };
-
-
     render() {
         let cover, spine;
         if (this.image) {
@@ -56,9 +51,7 @@ export default class BookComponent extends Component {
             <div  className='book' >
                 { spine }
                 < div className= 'cover' > { cover } < /div>
-                    < div className= 'up-vote' >
-                        <button className='button'  onClick= { this.upVoteBook } > { this.book.votes } < /button>
-                            < /div>
+                <UpVoteComponent book= { this.book } />
 
                             < /div>
                             < /div>
