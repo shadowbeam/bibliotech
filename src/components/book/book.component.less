@@ -1,38 +1,47 @@
-@book-height: 250px;
+@book-height: 330px;
 @book-corner: 3px;
 @import '../../variables.less';
 
-.book {
-    width: 100%;
-    height: @book-height;
-    background-color: brown;
-    box-shadow: 5px 5px 20px #333;
-    border-top-right-radius: @book-corner;
-    border-bottom-right-radius: @book-corner;
-    margin-bottom: 25px;
-    max-width: 225px;
-    margin-left: auto;
-    margin-right: auto;
+.book-wrapper {
 
-    .spine {
-        width: 10px;
-        height: 250px;
-        position: absolute;
-        background-color: rgba(51, 51, 51, 0.5);
-        margin-left: 5px;
-    }
+  margin-bottom: 50px;
+  overflow: hidden;
 
-    .cover {
-        padding: 10px 10px 10px 15px;
 
-        span {
-            display: block;
-            font-size: 20px;
-            line-height: 20px;
+    .book {
+        width: 100%;
+        max-height: @book-height;
+        height: @book-height;
+        background-color: brown;
+        // box-shadow: 5px 5px 20px #333;
+        border-top-right-radius: @book-corner;
+        border-bottom-right-radius: @book-corner;
+        max-width: 225px;
+        margin-left: auto;
+        margin-right: auto;
+        border: solid 1px #333;
+
+        .spine {
+            width: 10px;
+            height: @book-height;
+            position: absolute;
+            background-color: rgba(51, 51, 51, 0.5);
+            margin-left: 5px;
         }
 
-        .votes{
-          
+        .cover {
+
+            img {
+                max-width: 100%;
+            }
+
+            span {
+                display: block;
+                font-size: 20px;
+                line-height: 20px;
+            }
+
+            .votes {}
         }
     }
 }
