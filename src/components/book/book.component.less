@@ -1,5 +1,6 @@
-@book-height: 330px;
 @import '../../variables.less';
+@book-height: 330px;
+@vote-button-height: 85px;
 
 .book-wrapper {
     overflow: hidden;
@@ -22,6 +23,7 @@
 
         .cover {
             height: 100%;
+
             img {
                 max-width: 100%;
                 object-fit: cover;
@@ -31,7 +33,7 @@
 
             .title {
                 font-family: serif;
-                text-shadow: 0px 1px 1px #4d4d4d;
+                text-shadow: 0 1px 1px #4d4d4d;
                 padding: 10px 20px;
                 line-height: 40px;
                 display: block;
@@ -40,6 +42,26 @@
             }
 
             .votes {}
+        }
+
+        .up-vote {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            height: @vote-button-height;
+            width: @vote-button-height;
+            padding: 10px;
+
+            .button {
+                background-color: orange;
+                width: 100%;
+                height: 100%;
+                border-radius: 100%;
+                    padding: 0;
+                    font-size:20px;
+                    border: none;
+                    color:#fff;
+            }
         }
     }
 }

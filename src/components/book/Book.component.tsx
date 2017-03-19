@@ -53,16 +53,15 @@ export default class BookComponent extends Component {
 
         return (
             <div className='book-wrapper col-xs-6 col-sm-3 col-md-3 col-lg-3' >
-            <div  className='book' onClick= { this.upVoteBook } >
+            <div  className='book' >
                 { spine }
-                < div className= 'cover' >
-                    { cover }
-                    < /div>
-                    < /div>
-                    < /div>
+                < div className= 'cover' > { cover } < /div>
+                    < div className= 'up-vote' >
+                        <button className='button'  onClick= { this.upVoteBook } > { this.book.votes } < /button>
+                            < /div>
+
+                            < /div>
+                            < /div>
           )
     }
 }
-
-/*  < !--span className= 'title' > { this.book.title } < /span-->
-      < span className= 'votes' > { this.book.votes } < /span>*/
