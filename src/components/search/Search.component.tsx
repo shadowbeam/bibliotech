@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Component } from 'react';
 import './search.component.less';
 import BookService from '../service/book.service';
+import * as _ from 'underscore';
 
 
 export default class SearchComponent extends Component {
@@ -11,24 +12,33 @@ export default class SearchComponent extends Component {
     constructor(props) {
         super(props);
       this.bookService =  BookService.getInstance();
+      this.updateInputValue = this.updateInputValue.bind(this);
+      this.searchForBook = _.debounce(this.searchForBook,350);
+      this.clearResults = this.clearResults.bind(this);
 
         this.state = {
             results: [],
-            inputValue: ''
+            value: ''
         };
     }
 
-    public updateInputValue = (evt:any) => {
+    updateInputValue(event:any) {
+      const inputValue = event.target.value;
+      this.setState({value: inputValue});
+      this.searchForBook(inputValue);
+    }
 
-     this.setState({
-       inputValue: evt.target.value
-     });
+    searchForBook(query:string){
+      if(query.length > 4 ){
+         this.bookService.search(query, this.success);
+      }else if(query.length == 0){
+        this.clearResults();
+      }
+    }
 
-if(this.state.inputValue.length > 4 ){
-   this.bookService.search(this.state.inputValue, this.success);
-}
- }
-
+    clearResults(){
+      this.setState({ results: [] });
+    }
 
     public success = (response:string) => {
       console.log(response);
@@ -39,7 +49,7 @@ if(this.state.inputValue.length > 4 ){
         return (
             <div className='search'>
             <i className='fa fa-search'/>
-                <input value={this.state.inputValue} onChange={this.updateInputValue} placeholder='Search for books...'></input>
+                <input value={this.state.value} onChange={this.updateInputValue} onBlur={this.clearResults} placeholder='Search for books...'></input>
 <div className='results'>
 {
     this.state.results.map((book, index) =>
