@@ -15,11 +15,21 @@ export default class BookService {
 
 
     search(query:string, callback:()=> string) {
-
       axios.get(`https://www.googleapis.com/books/v1/volumes?q=${query}&maxResults=5`)
             .then(callback)
-            .catch(function(error) {
-                console.log(error);
-            });
+            .catch(this.error);
      }
+
+     fetchBook(isbn:string, callback:()=> any) {
+         axios.get(`https://www.googleapis.com/books/v1/volumes?q=isbn:${isbn}`)
+             .then(callback)
+             .catch(this.error);
+
+     }
+
+     error = error => {
+       console.log(error);
+
+     }
+
 }

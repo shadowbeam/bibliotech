@@ -4,6 +4,7 @@ import Book from '../model/Book.model';
 import './book.component.less';
 import UpVoteComponent from './up-vote/up-vote.component';
 import axios  from 'axios';
+import BookService from '../service/book.service';
 
 
 export default class BookComponent extends Component {
@@ -12,29 +13,21 @@ export default class BookComponent extends Component {
     image: string;
     // amazon http://images.amazon.com/images/P/1491956259.01._PE99_SCLZZZZZZZ_.jpg
     //openLib http://covers.openlibrary.org/b/isbn/9780385533225-S.jpg
+    bookService: BookService;
 
     constructor(props) {
         super(props);
         this.book = props.book;
-        this.fetchBook();
-    }
-
-    fetchBook() {
-        axios.get(`https://www.googleapis.com/books/v1/volumes?q=isbn:${this.book.isbn}`)
-            .then(this.success)
-            .catch(function(error) {
-                console.log(error);
-            });
-
+        BookService.getInstance().fetchBook(this.book.isbn, this.success);
     }
 
     success = response => {
-        // console.log(response);
         let id = response.data.items[0].id;
+        this.image = `http://books.google.com/books/content?id=${id}&printsec=frontcover&img=1&source=gbs_api&zoom=1`;
+        // this.image = `http://covers.openlibrary.org/b/isbn/${this.book.isbn}-S.jpg`;
+        // this.image = `http://images.amazon.com/images/P/${this.book.isbn}.01._PE99_SCLZZZZZZZ_.jpg`;
 
-        this.image = `http://books.google.com/books/content?id=${id}&printsec=frontcover&img=1&source=gbs_api`;
         this.forceUpdate();
-
     };
 
     render() {
@@ -49,13 +42,11 @@ export default class BookComponent extends Component {
 
         return (
             <div className='book-wrapper col-xs-6 col-sm-3 col-md-3 col-lg-3' >
-            <div  className='book' >
+            <div className='book' >
                 { spine }
-                < div className= 'cover' > { cover } </div>
-                <UpVoteComponent book= { this.book }/>
-
-                            </div>
-                            </div>
+                <div className= 'cover' > { cover } </div>
+                    <UpVoteComponent book= { this.book } />
+                        </div></div>
           )
     }
 }
